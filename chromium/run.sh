@@ -10,5 +10,5 @@ docker run --rm -it --net host \
     -v $HOME/Downloads:/home/chromium/Downloads \
     --device /dev/snd \
     --device /dev/dri \
-    --name chromium bmartin/chromium
+    --name chromium benoitmartin/chromium
 
