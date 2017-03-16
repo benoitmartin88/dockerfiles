@@ -1,4 +1,6 @@
 
+# check sound card index to use: cat /proc/asound/cards
+
 #run with: 
 #docker run --rm -it --net host \
 #           -e DISPLAY=unix$DISPLAY \
@@ -22,13 +24,23 @@ RUN echo "http://mirrors.2f30.org/alpine/v3.5/main" >> /etc/apk/repositories && 
 
 RUN apk --no-cache add xorg-server mesa-dri-ati mesa-dri-intel chromium chromium-chromedriver
 
-# Add chrome user
-RUN addgroup chrome && adduser -D -G chrome -G audio -G video chrome \
-    && mkdir -p /home/chrome/Downloads && chown -R chrome:chrome /home/chrome
+# Add chromium user
+RUN addgroup chromium && adduser -D -G chromium chromium && addgroup chromium audio && addgroup chromium video \
+    && mkdir -p /home/chromium/Downloads && chown -R chromium:chromium /home/chromium
+
+# set sound card
+RUN echo " \
+pcm.!default { \
+    type hw \
+    card 1 \
+}" >> /etc/asound.conf
+
+#VOLUME /dev/snd /dev/dri
+
+#RUN chgrp -RLv chromium /dev/dri /dev/snd
 
 # Run as non privileged user
-#USER chrome
-
+#USER chromium
 
 ENTRYPOINT [ "chromium-browser" ]
 CMD [ "--no-sandbox", "--user-data-dir=/data" ]
