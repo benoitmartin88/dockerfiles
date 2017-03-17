@@ -2,6 +2,7 @@
 
 docker run --rm -it --net host \
     -e DISPLAY=unix$DISPLAY \
+    -e ALSA_CARD=1 \
     -v ~/.Xauthority:/root/.Xauthority \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
