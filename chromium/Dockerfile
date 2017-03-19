@@ -9,7 +9,6 @@
 #    -v ~/.Xauthority:/root/.Xauthority \
 #    -v /tmp/.X11-unix:/tmp/.X11-unix \ 
 #    -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket \
-#    -v /usr/share/fonts:/usr/share/fonts \
 #    -v $HOME/.config/chromium/:/data \
 #    -v $HOME/Downloads:/home/chromium/Downloads \
 #    --device /dev/snd \
@@ -27,14 +26,15 @@ RUN echo "http://mirrors.2f30.org/alpine/v3.5/main" >> /etc/apk/repositories && 
 
 RUN apk --no-cache add xorg-server ttf-freefont mesa-dri-ati mesa-dri-intel chromium chromium-chromedriver
 
-# Add chromium user
-RUN addgroup chromium && adduser -D -G chromium chromium && addgroup chromium audio && addgroup chromium video \
+# Add chromium user and set audio and video groups with correct gui
+RUN addgroup chromium && adduser -D -G chromium chromium \
+    && delgroup audio && addgroup -g 29 audio \
+    && delgroup video && addgroup -g 44 video \
+    && addgroup chromium audio && addgroup chromium video \
     && mkdir -p /home/chromium/Downloads && chown -R chromium:chromium /home/chromium
 
-#RUN chgrp -RLv chromium /dev/dri /dev/snd
-
 # Run as non privileged user
-#USER chromium
+USER chromium
 
 ENTRYPOINT [ "chromium-browser" ]
 CMD [ "--no-sandbox", "--user-data-dir=/data" ]

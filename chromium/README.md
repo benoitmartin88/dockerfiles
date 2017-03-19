@@ -27,4 +27,9 @@ check sound card index to use: cat /proc/asound/cards
 
 cf: https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture
 
+# Note
+Check gid for groups audio and video. They should be 29 and 44 respectively.
+
+
+
 
