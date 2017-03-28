@@ -33,5 +33,4 @@ WORKDIR ${JOHN}
 #USER john
 
 ENTRYPOINT [ "/opt/john" ]
-#CMD [ "--no-sandbox", "--user-data-dir=/data" ]
 
