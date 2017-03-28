@@ -23,7 +23,7 @@ RUN cd john-1.8.0-jumbo-1 \
     && cd /tmp \
     && rm -rf /tmp/removeme
 
-#WORKDIR ${JOHN}
+WORKDIR ${JOHN}
 
 # Add john user
 #RUN addgroup john && adduser -D -G john john && addgroup john audio && addgroup john video \
