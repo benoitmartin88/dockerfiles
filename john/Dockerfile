@@ -34,3 +34,4 @@ WORKDIR ${JOHN}
 
 ENTRYPOINT [ "/opt/john" ]
 
+
