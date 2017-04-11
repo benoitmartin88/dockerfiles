@@ -24,7 +24,7 @@ LABEL maintainer "Benoit Martin <benoitmartin88@gmail.com>"
 RUN echo "http://mirrors.2f30.org/alpine/v3.5/main" >> /etc/apk/repositories && \
     echo "http://mirrors.2f30.org/alpine/v3.5/community" >> /etc/apk/repositories
 
-RUN apk add --no-cache xorg-server mesa-dri-ati mesa-dri-intel chromium chromium-chromedriver
+RUN apk add --no-cache xorg-server mesa-dri-ati mesa-dri-intel ttf-freefont chromium chromium-chromedriver
 
 # Add chromium user and set audio and video groups with correct gui
 RUN addgroup chromium && adduser -D -G chromium chromium \

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d "$HOME/.config/chromium/" ]; then
+    mkdir -p $HOME/.config/chromium/
+fi
+
 docker run --rm -it --net host \
     -e DISPLAY=unix$DISPLAY \
     -e ALSA_CARD=0 \
