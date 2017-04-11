@@ -1,0 +1,20 @@
+version: '3'
+services:
+    chromium:
+        build: .
+        image: benoitmartin/chromium
+        container_name: chromium
+        volumes:
+            - ~/.Xauthority:/root/.Xauthority
+            - /tmp/.X11-unix:/tmp/.X11-unix
+            - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+            - $HOME/.config/chromium/:/data
+            - $HOME/Downloads:/home/chromium/Downloads
+        devices:
+            - /dev/snd
+            - /dev/dri
+        environment:
+            - DISPLAY=unix$DISPLAY
+            - ALSA_CARD=0
+
+
