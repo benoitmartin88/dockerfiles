@@ -14,6 +14,8 @@ docker run --rm --net host \
     -v $HOME/Downloads:/home/chromium/Downloads \
     --device /dev/snd \
     --device /dev/dri \
+    --memory="4g" \
+    --shm-size="256m" \
     --name chromium \
     benoitmartin/chromium
 
