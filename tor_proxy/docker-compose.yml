@@ -1,0 +1,12 @@
+version: '3'
+services:
+    tor_proxy:
+        build: .
+        image: benoitmartin/tor_proxy
+        container_name: tor_proxy
+        volumes:
+            - /var/lib/tor
+        ports:
+            - "9050:9050"
+        restart: always
+
