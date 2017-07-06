@@ -18,7 +18,8 @@ RUN wget http://media.steampowered.com/client/installer/steam.deb \
 RUN echo 'steam ALL = NOPASSWD: ALL' > /etc/sudoers.d/steam && chmod 0440 /etc/sudoers.d/steam
 
 RUN adduser --disabled-password --gecos 'Steam' steam \
-    && adduser steam video
+    && adduser steam video \
+    && adduser steam audio
 
 USER steam
 ENV DISPLAY $DISPLAY
