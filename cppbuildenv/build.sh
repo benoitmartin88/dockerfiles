@@ -12,3 +12,16 @@ for GCC_TAG in "${GCC_TAG_VERSION_ARR[@]}"; do
 	    --tag $DOCKER_IMAGE_NAME:$GCC_TAG .
 done
 
+
+# login and deploy to docker hub
+
+docker login -u benoitmartin; CODE=$?
+[ $CODE != 0 ] && exit 1
+
+for GCC_TAG in "${GCC_TAG_VERSION_ARR[@]}"; do
+	echo "Building docker image: $DOCKER_IMAGE_NAME:$GCC_TAG"
+	docker push $DOCKER_IMAGE_NAME:$GCC_TAG
+done
+
+
+
