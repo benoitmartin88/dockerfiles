@@ -5,9 +5,12 @@ GCC_TAG_VERSION_ARR=( 4.6 4.8 4.9 5.2 5.4 6.3 6.4 7.2 )
 
 for GCC_TAG in "${GCC_TAG_VERSION_ARR[@]}"; do
 	echo "Building docker image: $DOCKER_IMAGE_NAME:$GCC_TAG"
+	
+	DOCKER_TAG=$GCC_TAG
+	
 	docker build \
 	    --build-arg GCC_TAG=$GCC_TAG \
-	    --tag $IMAGE_NAME:$GCC_TAG .
+	    --tag $IMAGE_NAME .
 done
 
 #docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=$SOURCE_COMMIT -t $IMAGE_NAME .
