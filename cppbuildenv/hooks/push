@@ -14,7 +14,7 @@ for GCC_TAG in "${GCC_TAG_VERSION_ARR[@]}"; do
 	
 #	DOCKER_TAG=$GCC_TAG
 	
-	docker tag $IMAGE_NAME-$GCC_TAG ${repoName}:$GCC_TAG
+#	docker tag $IMAGE_NAME-$GCC_TAG ${repoName}:$GCC_TAG
     docker push ${repoName}:$GCC_TAG
 done
 
