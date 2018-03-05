@@ -23,7 +23,7 @@ docker run --rm -it --net host \
 # Configuration
 The ALSA_CARD environment variable can be set to select the sound device to use.
 
-check sound card index to use: cat /proc/asound/cards
+check sound card index to use: cat /proc/asound/cards or run aplay -l
 
 cf: https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture
 
