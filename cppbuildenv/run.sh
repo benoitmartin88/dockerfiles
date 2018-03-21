@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_IMAGE="benoitmartin/gcc"
+DOCKER_IMAGE="benoitmartin/cppbuildenv"
 
 if [[ "$(docker images -q $DOCKER_IMAGE 2> /dev/null)" == "" ]]; then
     echo "image not found locally, building..."
@@ -9,6 +9,6 @@ fi
 
 docker run --rm -it \
     -v $(pwd):/home/user/ \
-    --name gcc \
+    --name cppbuildenv \
     $DOCKER_IMAGE
 
