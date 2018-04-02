@@ -18,5 +18,5 @@ docker run --rm --net host \
     --memory="8g" \
     --shm-size="512m" \
     --name chromium \
-    benoitmartin/chromium
+    benoitmartin/chromium:latest
 
