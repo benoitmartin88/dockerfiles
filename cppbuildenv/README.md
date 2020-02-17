@@ -8,6 +8,7 @@ Image contains:
 - cmake
 - ninja-build
 - gtest
+- gdb
 
 Version numbers depend on what is available in the debian repo.
 
