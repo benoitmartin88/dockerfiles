@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # tags from https://hub.docker.com/r/library/gcc/tags/
-GCC_TAG_VERSION_ARR=( 4.6 4.8 4.9 5.2 5.4 6.3 6.4 7.2 7.3 )
+GCC_TAG_VERSION_ARR=( 4.6 4.8 4.9 5.2 5.4 6.5 7.5 8.3 9.2 )
 DOCKER_IMAGE_NAME="benoitmartin/cppbuildenv"
 
 # build docker image with tag
